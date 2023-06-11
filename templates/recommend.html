@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BooksMate</title>
+    <link rel="shortcut icon" href="../static/assets/BooksMate.ico" type="image/x-icon">
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css" rel="stylesheet"/> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  </head>
+  <style>
+    body {
+    background: #000;
+
+    }
+
+    h1 {
+    font-size: 2.5em;
+    color: #fff;
+    }
+  </style>
+  <body>
+  <div class="root">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <!-- BooksMate -->
+      <img src="https://tse3.mm.bing.net/th?id=OIP.fmG5DJicjJPi2Rs7ZPlusAHaB0&pid=Api&P=0&h=180" height="42px" width="150px" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/list">Books List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/recommend">Recommend</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="mailto:vinaysaibandru@gmail.com">Contact</a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="container py-5">
+        <div class="row py-2">
+          <div class="col-md-12">
+            <h1 style="margin-top: 50px; margin-bottom: 50px;">Book Recommendation</h1>
+            <form class="input-group-lg" action="/recommend_books" method="post">
+              <input type="text" name="user_input" class="form-control input-group input-group-lg" autocomplete="" placeholder="Enter Book Name"><br>
+              <input type="submit" class="btn btn-warning text-reset gap-2 col-md-12">
+
+            </form>
+          </div>
+          {% if data %}
+          {% for i in data %}
+        <div class="col-md-3" style="margin-top: 50px;">
+                <div class="card">
+                    <img src="{{i[2]}}" class="card-img-top" height="300px" width="100px" alt="">
+                  <div class="card-body">
+                  <h6 class="card-text">{{i[0]}}</h6>
+                    <p>{{i[1]}}</p>
+                  </div>
+                </div>
+            </div>
+          {% endfor %}
+        {% endif%}
+        
+
+
+        </div>
+      </div>
+    </div>
+    
+    <footer class="text-center bg-primary text-white fixed-bottom" style="bottom: 0;margin-top: 25px;">
+    
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        GROUP 6 made by VINAYSAI & VINAY  &ensp;
+        <a href="https://github.com/Vinaysai0202/BOOK_RECOMMENDATION_PROJECT/" target="_main">
+          <img src="https://www.kindpng.com/picc/m/128-1280330_github-logo-png-github-icon-blue-png-transparent.png" alt="github" width="30" height="30">
+          </a>
+        
+      </div>
+      <!-- Copyright -->
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  </body>
+</html>
